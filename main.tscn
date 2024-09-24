@@ -1,14 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqyw68fbmensa"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_o82j8"]
-[ext_resource type="PackedScene" uid="uid://dc31w334xy7qv" path="res://prop.tscn" id="2_4ngy3"]
+[ext_resource type="PackedScene" uid="uid://cu7idies15a1k" path="res://group_prop.tscn" id="2_t2ajp"]
 [ext_resource type="PackedScene" uid="uid://bhh6lktneccxt" path="res://player.tscn" id="3_5n423"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o82j8")
-prop_scene = ExtResource("2_4ngy3")
+prop_scene = ExtResource("2_t2ajp")
 
 [node name="PropTimer" type="Timer" parent="."]
+wait_time = 2.5
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("3_5n423")]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu7idies15a1k"]
+
+[ext_resource type="PackedScene" uid="uid://dc31w334xy7qv" path="res://prop.tscn" id="1_gmf1q"]
+[ext_resource type="Script" path="res://group_prop.gd" id="1_pj4o0"]
+
+[node name="GroupProp" type="Node2D"]
+script = ExtResource("1_pj4o0")
+
+[node name="Prop" parent="." instance=ExtResource("1_gmf1q")]
+position = Vector2(0, 0)
+
+[node name="Prop2" parent="." instance=ExtResource("1_gmf1q")]
+position = Vector2(0, 0)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="touch_player" from="Prop" to="." method="_on_prop_touch_player"]
+[connection signal="touch_player" from="Prop2" to="." method="_on_prop_touch_player"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

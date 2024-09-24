@@ -8,6 +8,7 @@ size = Vector2(113, 44)
 
 [node name="Prop" type="Area2D"]
 position = Vector2(125, 105)
+collision_layer = 2
 script = ExtResource("1_7q5ky")
 metadata/_edit_group_ = true
 
@@ -33,3 +34,4 @@ vertical_alignment = 1
 shape = SubResource("RectangleShape2D_weavx")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="touch_player" from="." to="." method="_on_touch_player"]
