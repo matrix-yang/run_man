@@ -29,5 +29,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_entered(area: Area2D) -> void:
-	print(name,' delect _on_area_entered',area.name)
+	print(name,'delect entered',area.name,'with value',operator,num)
 	touch_player.emit()

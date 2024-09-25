@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 func _on_prop_timer_timeout() -> void:
 	#print('time out')
 	var prop = prop_scene.instantiate()
-	prop.set_meta("prop_pos", 'left')
+	#prop.set_meta("prop_pos", 'left')
 	#var prop1 = prop_scene.instantiate()
 	#prop1.set_meta("prop_pos", 'right')
 	add_child(prop)

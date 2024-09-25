@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_o82j8"]
 [ext_resource type="PackedScene" uid="uid://cu7idies15a1k" path="res://group_prop.tscn" id="2_t2ajp"]
-[ext_resource type="PackedScene" uid="uid://bhh6lktneccxt" path="res://player.tscn" id="3_5n423"]
+[ext_resource type="PackedScene" uid="uid://dn0t1ll11yruj" path="res://player_group.tscn" id="3_6nyiv"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o82j8")
@@ -12,6 +12,6 @@ prop_scene = ExtResource("2_t2ajp")
 wait_time = 2.5
 autostart = true
 
-[node name="Player" parent="." instance=ExtResource("3_5n423")]
+[node name="PlayerGroup" parent="." instance=ExtResource("3_6nyiv")]
 
 [connection signal="timeout" from="PropTimer" to="." method="_on_prop_timer_timeout"]
