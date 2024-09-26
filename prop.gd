@@ -20,7 +20,7 @@ func _ready() -> void:
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 	#print(randi() % 25)
 	operator = operator_list[randi() % operator_list.size()]
-	num=randi() % 20+1
+	num=randi() % 5+1
 	$Text.text=operator+''+str(num)
 	pass
 	
@@ -29,5 +29,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_entered(area: Area2D) -> void:
-	print(name,'delect entered',area.name,'with value',operator,num)
+	#print(name,' delect entered ',area.name,'with value',operator,num)
 	touch_player.emit()
