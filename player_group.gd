@@ -71,7 +71,7 @@ func _on_area_entered(area: Area2D) -> void:
 		var cnt=(total_count * (area.num-1))
 		add_count(cnt)
 	elif area.operator=='÷':
-		var cnt=int(total_count*(1-1/area.num))
+		var cnt=int(total_count*(1-1.0/area.num))
 		del_count(cnt)
 	else:
 		pass
