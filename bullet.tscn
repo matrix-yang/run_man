@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdbdbm52cgg2b"]
+
+[ext_resource type="Texture2D" uid="uid://3qinqkbkefoi" path="res://art/bullet.png" id="1_7rc4h"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_t8jik"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lqcls"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3n77i"]
+radius = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_antdr"]
+atlas = ExtResource("1_7rc4h")
+region = Rect2(0, 72, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75ods"]
+atlas = ExtResource("1_7rc4h")
+region = Rect2(8, 72, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cc0v"]
+atlas = ExtResource("1_7rc4h")
+region = Rect2(16, 72, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m7c4"]
+atlas = ExtResource("1_7rc4h")
+region = Rect2(24, 72, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r304a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_antdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75ods")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cc0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m7c4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_lqcls")
+gravity_scale = 0.0
+linear_velocity = Vector2(0, -600)
+script = ExtResource("1_t8jik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3n77i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r304a")
