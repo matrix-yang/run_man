@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdire3xoffld2"]
+
+[ext_resource type="Script" path="res://scripts/boss_1.gd" id="1_02dls"]
+[ext_resource type="Texture2D" uid="uid://gt3wo8km1nl1" path="res://art/Animals/Pig..png" id="2_so1ld"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnsxg"]
+atlas = ExtResource("2_so1ld")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxgp6"]
+atlas = ExtResource("2_so1ld")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inryj"]
+atlas = ExtResource("2_so1ld")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od4qp"]
+atlas = ExtResource("2_so1ld")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nyist"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnsxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxgp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inryj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od4qp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujqkp"]
+radius = 57.0
+height = 146.0
+
+[node name="Boss1" type="Area2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_02dls")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_nyist")
+frame_progress = 0.432859
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ujqkp")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 173.25)
+scale = Vector2(5.45, 24.575)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

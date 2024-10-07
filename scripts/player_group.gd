@@ -63,6 +63,7 @@ func del_count(count:int)->void:
 
 func _on_area_entered(area: Area2D) -> void:
 	#print(area.name,area.operator,area.num)
+	print(area.name)
 	if area.operator=='+':
 		add_count(area.num)
 	elif area.operator=='-':

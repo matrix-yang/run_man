@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqyw68fbmensa"]
+[gd_scene load_steps=3 format=3 uid="uid://cqyw68fbmensa"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_o82j8"]
-[ext_resource type="PackedScene" uid="uid://cu7idies15a1k" path="res://group_prop.tscn" id="2_t2ajp"]
 [ext_resource type="PackedScene" uid="uid://dn0t1ll11yruj" path="res://player_group.tscn" id="3_6nyiv"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o82j8")
-prop_scene = ExtResource("2_t2ajp")
 
 [node name="PropTimer" type="Timer" parent="."]
 wait_time = 2.5
@@ -14,4 +12,8 @@ autostart = true
 
 [node name="PlayerGroup" parent="." instance=ExtResource("3_6nyiv")]
 
+[node name="BossTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="PropTimer" to="." method="_on_prop_timer_timeout"]
+[connection signal="timeout" from="BossTimer" to="." method="_on_boss_timer_timeout"]
